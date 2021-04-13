@@ -41,18 +41,41 @@ body {
   order: 3;
 }
 
-#past-activity-box {
-  background-color: #53E0CD;
-  padding: 10px;
+.activity-box {
+  padding: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#past-activity-box-button {
+  background-color: #53E0CD;
+}
+
+#next-activity-box-button {
+  background-color: #B1BAB9;
+}
+
+.enter-button {
+  background-color: #FFF;
+  padding: 10px;
+  box-shadow: 1px 1px;
+  color: #333333;
   border-radius: 25px;
 }
 
-#next-activity-box {
-  background-color: #B1BAB9;
+.submit-button {
+  background-color: #333333;
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  box-shadow: 1px 1px;
+  color: #FFF;
   border-radius: 25px;
+}
+
+#next-activity-box-form {
+  display: none;
 }

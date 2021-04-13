@@ -19,13 +19,34 @@
       <div id="which-activity">What activity session are you logging?</div>
     </div>
     <div class="past-activity">
-      <div id="past-activity-box">
-        Past Activity
+      Past Activity
+      <div class="activity-box" id="past-activity-box-button">
+        <button class="button" id="next-activity-button" onclick="addPastActivity()">Add New Activity</button>
       </div>
     </div>
     <div class="next-activity">
-      <div id="next-activity-box">
-        Next Activity
+      Future Plans
+      <div class="activity-box" id="next-activity-box-button">
+        <button class="enter-button" id="next-activity-button" onclick="addNextActivity()">Add New Activity</button>
+      </div>
+      <div class="activity-box" id="next-activity-box-form">
+        <label for="future-activity-date">Start date:</label>
+        <input type="date" id="future-activity-date">
+        <label for="future-activity-type">Activity:</label>
+        <select name="Activity" id="future-activity-type" onchange="updateUnits()">
+          <option value="walk">Walk</option>
+          <option value="run">Run</option>
+          <option value="swim">Swim</option>
+          <option value="bike">Bike</option>
+          <option value="yoga">Yoga</option>
+          <option value="soccer">Soccer</option>
+          <option value="basketball">Basketball</option>
+        </select>
+        <label for="time-distance">Time/Distance:</label>
+        <input type="number" id="time-distance" value="0">
+        <label for="units">Units:</label>
+        <input type="text" id="units" value="km" readonly>
+        <button class="submit-button">Submit</button>
       </div>
     </div>
   </div>
