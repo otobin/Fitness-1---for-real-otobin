@@ -24,23 +24,35 @@
         <button class="enter-button" id="next-activity-button" onclick="enterPastActivity()">Add New Activity</button>
       </div>
       <div class="activity-box" id="past-activity-box-form">
-        <label for="past-activity-date">Start date:</label>
-        <input type="date" id="past-activity-date">
-        <label for="past-activity-type">Activity:</label>
-        <select name="Activity" id="past-activity-type" onchange="updateUnits('past')">
-          <option value="walk">Walk</option>
-          <option value="run">Run</option>
-          <option value="swim">Swim</option>
-          <option value="bike">Bike</option>
-          <option value="yoga">Yoga</option>
-          <option value="soccer">Soccer</option>
-          <option value="basketball">Basketball</option>
-        </select>
-        <label for="past-time-distance">Time/Distance:</label>
-        <input type="number" id="past-time-distance" value="0">
-        <label for="past-units">Units:</label>
-        <input type="text" id="past-units" value="km" readonly>
+        <div class="form-div">
+          <label for="past-activity-date">Start date:</label>
+          <input type="date" id="past-activity-date">
+        </div>
+        <div class="form-div">
+          <label for="past-activity-type">Activity:</label>
+          <select name="Activity" id="past-activity-type" onchange="updateUnits('past')">
+            <option value="walk">Walk</option>
+            <option value="run">Run</option>
+            <option value="swim">Swim</option>
+            <option value="bike">Bike</option>
+            <option value="yoga">Yoga</option>
+            <option value="soccer">Soccer</option>
+            <option value="basketball">Basketball</option>
+          </select>
+        </div>
+        <div class="form-div">
+          <label for="past-time-distance">Time/Distance:</label>
+          <input type="number" id="past-time-distance" value="0">
+        </div>
+        <div class="form-div">
+          <label for="past-units">Units:</label>
+          <input type="text" id="past-units" value="km" readonly>
+        </div>
         <button class="submit-button" onclick="validateInput('past')">Submit</button>
+      </div>
+      <div class="activity-box" id="recorded-past-activity">
+        <div id="recorded-past-activity-text"></div>
+        <button class="enter-button" onclick="enterPastActivity()">Add a New Activity</button>
       </div>
     </div>
     <div class="next-activity">
@@ -49,23 +61,27 @@
         <button class="enter-button" id="next-activity-button" onclick="enterNextActivity()">Add New Activity</button>
       </div>
       <div class="activity-box" id="next-activity-box-form">
-        <label for="future-activity-date">Start date:</label>
-        <input type="date" id="future-activity-date">
-        <label for="future-activity-type">Activity:</label>
-        <select name="Activity" id="future-activity-type" onchange="updateUnits('future')">
-          <option value="walk">Walk</option>
-          <option value="run">Run</option>
-          <option value="swim">Swim</option>
-          <option value="bike">Bike</option>
-          <option value="yoga">Yoga</option>
-          <option value="soccer">Soccer</option>
-          <option value="basketball">Basketball</option>
-        </select>
-        <label for="future-time-distance">Time/Distance:</label>
-        <input type="number" id="time-distance" value="0">
-        <label for="future-units">Units:</label>
-        <input type="text" id="units" value="km" readonly>
+        <div class="form-div">
+          <label for="future-activity-date">Start date:</label>
+          <input type="date" id="future-activity-date">
+        </div>
+        <div class="form-div">
+          <label for="future-activity-type">Activity:</label>
+          <select name="Activity" id="future-activity-type">
+            <option value="walk">Walk</option>
+            <option value="run">Run</option>
+            <option value="swim">Swim</option>
+            <option value="bike">Bike</option>
+            <option value="yoga">Yoga</option>
+            <option value="soccer">Soccer</option>
+            <option value="basketball">Basketball</option>
+          </select>
+        </div>
         <button class="submit-button" onclick="validateInput('future')">Submit</button>
+      </div>
+      <div class="activity-box" id="recorded-future-activity">
+        <div id="recorded-future-activity-text"></div>
+        <button class="enter-button" onclick="enterNextActivity()">Add a New Activity</button>
       </div>
     </div>
   </div>

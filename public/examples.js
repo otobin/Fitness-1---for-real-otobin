@@ -4,11 +4,7 @@
 // Set the default values of both date types to be today
 
 function updateUnits(inputType) {
-  if (inputType === "past") {
-    activityType = document.getElementById("past-activity-type").value;
-  } else {
-    activityType = document.getElementById("future-activity-type").value;
-  }
+  activityType = document.getElementById(inputType + "-activity-type").value;
   if (activityType === "walk" || activityType === "run" || activityType === "bike") {
     unitType = "km";
   } else if (activityType === "yoga" || activityType === "soccer" || activityType === "basketball") {
@@ -16,12 +12,13 @@ function updateUnits(inputType) {
   } else {
     unitType = "laps";
   }
-  document.getElementById("units").value = unitType;
+  document.getElementById(inputType + "-units").value = unitType;
 }
 
 // Changes the initial display to reveal the form for a past activity
 function enterPastActivity() {
   document.getElementById("past-activity-box-button").style.display = "none";
+  document.getElementById("recorded-past-activity").style.display = "none";
   document.getElementById("past-activity-box-form").style.display = "block";
 }
 
@@ -29,21 +26,39 @@ function enterPastActivity() {
 // Changes the initial display to reveal the form for a future activity
 function enterNextActivity() {
   document.getElementById("next-activity-box-button").style.display = "none";
+  document.getElementById("recorded-future-activity").style.display = "none";
   document.getElementById("next-activity-box-form").style.display = "block";
 }
 
 // Checks if all of the fields for the form have been filled out correctly before the user is able to submit an activity. InputType is either present or past. 
 function validateInput(inputType) {
   elementList = [];
-  elementList.push(document.getElementById(inputType + "-activity-date"));
-  elementList.push(document.getElementById(inputType + "-activity-type"));
-  elementList.push(document.getElementById(inputType + "-time-distance"));
-  elementList.push(document.getElementById(inputType + "-units"));
+  elementList.push(document.getElementById(inputType + "-activity-date").value);
+  elementList.push(document.getElementById(inputType + "-activity-type").value);
+  if (inputType == "past") {
+    elementList.push(document.getElementById(inputType + "-time-distance").value);
+    elementList.push(document.getElementById(inputType + "-units").value);
+  }
+  console.log(elementList);
   for (i = 0; i < elementList.length; i++) {
-    if (elementList[i].value === "") {
+    if (elementList[i].length == 0) {
+      console.log(elementList[i]);
       alert("Make sure to fill out all fields of the form!")
-      return False;
+      return false;
     }
   }
-  console.log("nice! You filled it out correctly");
+  updateText(inputType, elementList);
+}
+
+// Change the inner text of the div's and then make the div visible
+function updateText(inputType, elementList) {
+  if (inputType == "past") {
+      document.getElementById("recorded-past-activity-text").innerText = "Got it! " + elementList[1] + " for " + elementList[2] + " " + elementList[3] + ". Keep up the good work!"
+      document.getElementById("past-activity-box-form").style.display = "none";
+      document.getElementById("recorded-past-activity").style.display = "block";
+  } else {
+    document.getElementById("recorded-future-activity-text").innerText = "Sounds good! Don't forget to update your session for " + elementList[1] + " on " + elementList[0] + "!";
+    document.getElementById("next-activity-box-form").style.display = "none";
+    document.getElementById("recorded-future-activity").style.display = "block";
+  }
 }
