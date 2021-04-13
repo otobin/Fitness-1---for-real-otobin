@@ -60,6 +60,11 @@ body {
   background-color: #B1BAB9;
 }
 
+#next-activity-box-form {
+  background-color: #B1BAB9;
+  display: none;
+}
+
 .enter-button {
   background-color: #FFF;
   padding: 10px;
@@ -76,6 +81,4 @@ body {
   border-radius: 25px;
 }
 
-#next-activity-box-form {
-  display: none;
-}
+

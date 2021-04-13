@@ -3,9 +3,9 @@
 
 function updateUnits() {
   activityType = document.getElementById("future-activity-type").value;
-  if (value === "walk" || value === "run" || value === "bike") {
+  if (activityType === "walk" || activityType === "run" || activityType === "bike") {
     unitType = "km";
-  } else if (value === "yoga" || value === "soccer" || value === "basketball") {
+  } else if (activityType === "yoga" || activityType === "soccer" || activityType === "basketball") {
     unitType = "min";
   } else {
     unitType = "laps";
@@ -19,6 +19,7 @@ function addPastActivity() {
 
 function addNextActivity() {
   console.log("Adding future activity");
-  document.getElementById("next-activity-box-button").display = "none";
-  document.getElementById("next-activity-box-form").display = "block";
+  document.getElementById("next-activity-box-button").style.display = "none";
+  document.getElementById("next-activity-box-form").style.display = "block";
+  console.log("changed display");
 }
