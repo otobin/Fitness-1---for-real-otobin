@@ -48,6 +48,11 @@ function validateInput(inputType) {
   }
   updateText(inputType, elementList);
   sendPostRequest(inputType, elementList).then(function (response) {
+    if (inputType == "past") {
+      console.log("Past Activity Success:");
+    } else {
+      console.log("Future Plans Success:")
+    } 
     console.log(response);
   }).catch(function (error) {
     console.log("Error", error);
@@ -71,7 +76,7 @@ function updateText(inputType, elementList) {
 async function sendPostRequest(inputType, elementList) {
   // Print out Console messages
   if (inputType == "past") {
-    console.log("Past Activity Sending");
+    console.log("Past Activity Sending:");
     url = "/pastActivity";
     jsonObject = {
       "activity": elementList[1],
@@ -81,7 +86,7 @@ async function sendPostRequest(inputType, elementList) {
     }
     console.log(jsonObject);
   } else {
-    console.log("Future Plans Sending");
+    console.log("Future Plans Sending:");
     url = "/futureActivity";
     jsonObject = {
       "activity": elementList[1],
