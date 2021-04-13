@@ -24,30 +24,22 @@
         <button class="enter-button" id="next-activity-button" onclick="enterPastActivity()">Add New Activity</button>
       </div>
       <div class="activity-box" id="past-activity-box-form">
-        <div class="form-div">
-          <label for="past-activity-date">Start date:</label>
+          <label for="past-activity-date">Start date:</label><br>
           <input type="date" id="past-activity-date">
-        </div>
-        <div class="form-div">
-          <label for="past-activity-type">Activity:</label>
+          <label for="past-activity-type">Activity:</label><br>
           <select name="Activity" id="past-activity-type" onchange="updateUnits('past')">
-            <option value="walk">Walk</option>
-            <option value="run">Run</option>
-            <option value="swim">Swim</option>
-            <option value="bike">Bike</option>
-            <option value="yoga">Yoga</option>
-            <option value="soccer">Soccer</option>
-            <option value="basketball">Basketball</option>
+            <option value="Walk">Walk</option>
+            <option value="Run">Run</option>
+            <option value="Swim">Swim</option>
+            <option value="Bike">Bike</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Soccer">Soccer</option>
+            <option value="Basketball">Basketball</option>
           </select>
-        </div>
-        <div class="form-div">
-          <label for="past-time-distance">Time/Distance:</label>
+          <label for="past-time-distance">Time/Distance:</label><br>
           <input type="number" id="past-time-distance" value="0">
-        </div>
-        <div class="form-div">
-          <label for="past-units">Units:</label>
+          <label for="past-units">Units:</label><br>
           <input type="text" id="past-units" value="km" readonly>
-        </div>
         <button class="submit-button" onclick="validateInput('past')">Submit</button>
       </div>
       <div class="activity-box" id="recorded-past-activity">
@@ -68,13 +60,13 @@
         <div class="form-div">
           <label for="future-activity-type">Activity:</label>
           <select name="Activity" id="future-activity-type">
-            <option value="walk">Walk</option>
-            <option value="run">Run</option>
-            <option value="swim">Swim</option>
-            <option value="bike">Bike</option>
-            <option value="yoga">Yoga</option>
-            <option value="soccer">Soccer</option>
-            <option value="basketball">Basketball</option>
+            <option value="Walk">Walk</option>
+            <option value="Run">Run</option>
+            <option value="Swim">Swim</option>
+            <option value="Bike">Bike</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Soccer">Soccer</option>
+            <option value="Basketball">Basketball</option>
           </select>
         </div>
         <button class="submit-button" onclick="validateInput('future')">Submit</button>

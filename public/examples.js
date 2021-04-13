@@ -5,9 +5,9 @@
 
 function updateUnits(inputType) {
   activityType = document.getElementById(inputType + "-activity-type").value;
-  if (activityType === "walk" || activityType === "run" || activityType === "bike") {
+  if (activityType === "Walk" || activityType === "Run" || activityType === "Bike") {
     unitType = "km";
-  } else if (activityType === "yoga" || activityType === "soccer" || activityType === "basketball") {
+  } else if (activityType === "Yoga" || activityType === "Soccer" || activityType === "Basketball") {
     unitType = "min";
   } else {
     unitType = "laps";
@@ -39,7 +39,6 @@ function validateInput(inputType) {
     elementList.push(document.getElementById(inputType + "-time-distance").value);
     elementList.push(document.getElementById(inputType + "-units").value);
   }
-  console.log(elementList);
   for (i = 0; i < elementList.length; i++) {
     if (elementList[i].length == 0) {
       console.log(elementList[i]);
@@ -48,6 +47,11 @@ function validateInput(inputType) {
     }
   }
   updateText(inputType, elementList);
+  sendPostRequest(inputType, elementList).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    console.log("Error", error);
+  });
 }
 
 // Change the inner text of the div's and then make the div visible
@@ -61,4 +65,35 @@ function updateText(inputType, elementList) {
     document.getElementById("next-activity-box-form").style.display = "none";
     document.getElementById("recorded-future-activity").style.display = "block";
   }
+}
+
+// Sends the post request to the server. 
+async function sendPostRequest(inputType, elementList) {
+  // Print out Console messages
+  if (inputType == "past") {
+    console.log("Past Activity Sending");
+    url = "/pastActivity";
+    jsonObject = {
+      "activity": elementList[1],
+      "date": elementList[0],
+      "scalar": elementList[2],
+      "units": elementList[3]
+    }
+    console.log(jsonObject);
+  } else {
+    console.log("Future Plans Sending");
+    url = "/futureActivity";
+    jsonObject = {
+      "activity": elementList[1],
+      "date": elementList[0]
+    }
+    console.log(jsonObject);
+  }
+  // Send POST request 
+  let response = await fetch(url, {
+    method: 'POST', 
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(jsonObject) 
+  });
+  return response.json();
 }

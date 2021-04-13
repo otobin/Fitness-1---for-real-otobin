@@ -14,10 +14,20 @@ app.get("/", (request, response) => {
 // a module to use instead of older body-parser; not needed yet, but very useful!
 app.use(express.json());
 
-// This is where the server recieves and responds to POST requests
-app.post('*', function(request, response, next) {
-  console.log("Server recieved a post request at", request.url);
-  response.send("I got your POST request");
+// POST handler for /pastActivity
+app.post('/pastActivity', function(request, response, next) {
+  responseMessage = {message: "I received your POST request at /pastActivity"};
+  console.log(responseMessage);
+  console.log(JSON.stringify(responseMessage));
+  response.send(JSON.stringify(responseMessage));
+});
+
+// POST handler for /futureActivity
+app.post('/futureActivity', function(request, response, next) {
+  responseMessage = {message: "I received your POST request at /futureActivity"};
+  console.log(responseMessage);
+  console.log(JSON.stringify(responseMessage));
+  response.send(JSON.stringify(responseMessage));
 });
 
 
