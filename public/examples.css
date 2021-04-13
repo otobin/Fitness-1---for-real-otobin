@@ -65,6 +65,11 @@ body {
   display: none;
 }
 
+#past-activity-box-form {
+  background-color: #53E0CD;
+  display: none;
+}
+
 .enter-button {
   background-color: #FFF;
   padding: 10px;
