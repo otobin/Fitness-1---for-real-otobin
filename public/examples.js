@@ -1,7 +1,11 @@
-// TODO:
-// Add date checking: if future activity, date should be in the future and if
-// is a past activity the date should have already occurred
-// Set the default values of both date types to be today
+// Sets the value of both date inputs to be today by default using Date module
+function getDate() {
+  todayDateString = new Date().toISOString().slice(0, 10);
+  document.getElementById("past-activity-date").value = todayDateString;
+  document.getElementById("future-activity-date").value = todayDateString;
+
+}
+
 
 function updateUnits(inputType) {
   activityType = document.getElementById(inputType + "-activity-type").value;
@@ -79,11 +83,11 @@ function validateInput(inputType) {
 // Change the inner text of the div's and then make the div visible
 function updateText(inputType, elementList) {
   if (inputType == "past") {
-      document.getElementById("recorded-past-activity-text").innerText = "Got it! " + elementList[1] + " for " + elementList[2] + " " + elementList[3] + ". Keep up the good work!"
+      document.getElementById("past-activity-bold").innerText = elementList[1] + " for " + elementList[2] + " " + elementList[3] + "."
       document.getElementById("past-activity-box-form").style.display = "none";
       document.getElementById("recorded-past-activity").style.display = "block";
   } else {
-    document.getElementById("recorded-future-activity-text").innerText = "Sounds good! Don't forget to update your session for " + elementList[1] + " on " + elementList[0] + "!";
+    document.getElementById("future-activity-bold").innerText = elementList[1] + " on " + elementList[0] + "!";
     document.getElementById("next-activity-box-form").style.display = "none";
     document.getElementById("recorded-future-activity").style.display = "block";
   }
