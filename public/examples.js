@@ -32,6 +32,7 @@ function enterNextActivity() {
 
 // Checks if all of the fields for the form have been filled out correctly before the user is able to submit an activity. InputType is either present or past. 
 function validateInput(inputType) {
+  // Check that all the fields are filled out
   elementList = [];
   elementList.push(document.getElementById(inputType + "-activity-date").value);
   elementList.push(document.getElementById(inputType + "-activity-type").value);
@@ -46,6 +47,22 @@ function validateInput(inputType) {
       return false;
     }
   }
+  // Check that the date is valid 
+  todayDateString = new Date().toISOString().slice(0, 10);
+  if (inputType == "past") {
+    // Check that the date of a past activity is in the past 
+    if (elementList[0] > todayDateString) {
+      alert("Date must be in the past");
+      return false;
+    }
+  } else {
+    // Check that the date of a future activity is in the future 
+    if (elementList[0] < todayDateString) {
+      alert("Date must be in the future");
+      return false;
+    }
+  }
+  // Since everything is valid, move on to updating text and calling the postRequest
   updateText(inputType, elementList);
   sendPostRequest(inputType, elementList).then(function (response) {
     if (inputType == "past") {
