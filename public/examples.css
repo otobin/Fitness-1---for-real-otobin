@@ -28,7 +28,6 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 50px;
-  margin-bottom: 50px;
   flex-wrap: wrap;
 }
 
@@ -56,6 +55,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 }
 
 .form-div {
@@ -84,11 +84,13 @@ body {
 #recorded-future-activity {
   background-color: #B1BAB9;
   display: none;
+  text-align: center;
 }
 
 #recorded-past-activity {
   background-color: #53E0CD;
   display: none;
+  text-align: center;
 }
 
 .enter-button {
@@ -107,5 +109,12 @@ body {
   border-radius: 25px;
 }
 
+#which-activity {
+  margin-bottom: 50px;
+}
 
- f
+@media screen and (max-width: 627px) {
+    img {
+         width: 200px;
+    }
+}

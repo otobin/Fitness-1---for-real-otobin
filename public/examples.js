@@ -91,10 +91,12 @@ function updateText(inputType, elementList) {
       document.getElementById("past-activity-bold").innerText = elementList[1] + " for " + elementList[2] + " " + elementList[3] + "."
       document.getElementById("past-activity-box-form").style.display = "none";
       document.getElementById("recorded-past-activity").style.display = "flex";
+      document.getElementById("recorded-past-activity").style.flexDirection = "column";
   } else {
     document.getElementById("future-activity-bold").innerText = elementList[1] + " on " + elementList[0] + "!";
     document.getElementById("next-activity-box-form").style.display = "none";
     document.getElementById("recorded-future-activity").style.display = "flex";
+    document.getElementById("recorded-future-activity").style.flexDirection = "column";
   }
 }
 
