@@ -17,16 +17,12 @@ app.use(express.json());
 // POST handler for /pastActivity
 app.post('/pastActivity', function(request, response, next) {
   responseMessage = {message: "I received your POST request at /pastActivity"};
-  console.log(responseMessage);
-  console.log(JSON.stringify(responseMessage));
   response.send(JSON.stringify(responseMessage));
 });
 
 // POST handler for /futureActivity
 app.post('/futureActivity', function(request, response, next) {
   responseMessage = {message: "I received your POST request at /futureActivity"};
-  console.log(responseMessage);
-  console.log(JSON.stringify(responseMessage));
   response.send(JSON.stringify(responseMessage));
 });
 
