@@ -1,3 +1,9 @@
+// TODO: image increases from mobile to max size and then stays constant 
+// Buttons
+// div styling 
+
+
+
 // Sets the value of both date inputs to be today by default using Date module
 function getDate() {
   todayDateString = new Date().toISOString().slice(0, 10);
@@ -5,7 +11,6 @@ function getDate() {
   document.getElementById("future-activity-date").value = todayDateString;
 
 }
-
 
 function updateUnits(inputType) {
   activityType = document.getElementById(inputType + "-activity-type").value;
@@ -23,7 +28,7 @@ function updateUnits(inputType) {
 function enterPastActivity() {
   document.getElementById("past-activity-box-button").style.display = "none";
   document.getElementById("recorded-past-activity").style.display = "none";
-  document.getElementById("past-activity-box-form").style.display = "block";
+  document.getElementById("past-activity-box-form").style.display = "flex";
 }
 
 
@@ -31,7 +36,7 @@ function enterPastActivity() {
 function enterNextActivity() {
   document.getElementById("next-activity-box-button").style.display = "none";
   document.getElementById("recorded-future-activity").style.display = "none";
-  document.getElementById("next-activity-box-form").style.display = "block";
+  document.getElementById("next-activity-box-form").style.display = "flex";
 }
 
 // Checks if all of the fields for the form have been filled out correctly before the user is able to submit an activity. InputType is either present or past. 
@@ -85,11 +90,11 @@ function updateText(inputType, elementList) {
   if (inputType == "past") {
       document.getElementById("past-activity-bold").innerText = elementList[1] + " for " + elementList[2] + " " + elementList[3] + "."
       document.getElementById("past-activity-box-form").style.display = "none";
-      document.getElementById("recorded-past-activity").style.display = "block";
+      document.getElementById("recorded-past-activity").style.display = "flex";
   } else {
     document.getElementById("future-activity-bold").innerText = elementList[1] + " on " + elementList[0] + "!";
     document.getElementById("next-activity-box-form").style.display = "none";
-    document.getElementById("recorded-future-activity").style.display = "block";
+    document.getElementById("recorded-future-activity").style.display = "flex";
   }
 }
 
