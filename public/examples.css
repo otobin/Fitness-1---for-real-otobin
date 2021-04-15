@@ -18,8 +18,6 @@ body {
   margin: auto;
 }
 
-
-
 .img {
   width: 100%;
 }
@@ -99,6 +97,7 @@ body {
   box-shadow: 1px 1px;
   color: #333333;
   border-radius: 25px;
+  text-align: center;
 }
 
 .submit-button {
@@ -114,7 +113,11 @@ body {
 }
 
 @media screen and (max-width: 627px) {
-    img {
-         width: 200px;
-    }
+  img {
+    width: 200px;
+  }
+}
+
+button {
+  max-width: 160px;
 }

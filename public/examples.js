@@ -1,9 +1,3 @@
-// TODO: image increases from mobile to max size and then stays constant 
-// Buttons
-// div styling 
-
-
-
 // Sets the value of both date inputs to be today by default using Date module
 function getDate() {
   todayDateString = new Date().toISOString().slice(0, 10);
