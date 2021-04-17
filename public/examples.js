@@ -1,6 +1,6 @@
 // Sets the value of both date inputs to be today by default using Date module
 function getDate() {
-  todayDateString = new Date().toISOString().slice(0, 10);
+  todayDateString = new Date().toLocaleDateString('en-CA');
   document.getElementById("past-activity-date").value = todayDateString;
   document.getElementById("future-activity-date").value = todayDateString;
 
@@ -51,7 +51,7 @@ function validateInput(inputType) {
     }
   }
   // Check that the date is valid 
-  todayDateString = new Date().toISOString().slice(0, 10);
+  todayDateString = new Date().toLocaleDateString('en-CA');
   if (inputType == "past") {
     // Check that the date of a past activity is in the past 
     if (elementList[0] > todayDateString) {

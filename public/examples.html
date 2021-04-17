@@ -24,11 +24,11 @@
     <div class="past-activity">
       Past Activity
       <div class="activity-box" id="past-activity-box-button">
-        <button class="enter-button" id="next-activity-button" onclick="enterPastActivity()">Add New Activity</button>
+        <button class="enter-button" id="next-activity-button" onclick="enterPastActivity()"><div>Add New Activity</div></button>
       </div>
       <div class="activity-box" id="past-activity-box-form">
         <div class="form-div">
-          <label for="past-activity-date">Start date:</label><br>
+          <label for="past-activity-date">Date:</label><br>
           <input type="date" id="past-activity-date">
         </div>
         <div class="form-div">
@@ -52,18 +52,19 @@
           <input type="text" id="past-units" value="km" readonly>
         </div>
         <div class="form-div">
-          <button class="submit-button" onclick="validateInput('past')">Submit</button>
+          <button class="submit-button" onclick="validateInput('past')"><div>Submit</div></button>
         </div>
       </div>
       <div class="activity-box" id="recorded-past-activity">
-        <div id="recorded-past-activity-text">Got it! <strong id="past-activity-bold"></strong> Keep up the good work!</div>
-        <div><button class="enter-button" onclick="enterPastActivity()">Add a New Activity</button></div>
+        <div id="recorded-past-activity-text">Got it! <strong id="past-activity-bold"></strong> Keep it up!</div>
+        <br>
+        <div><button class="enter-button" onclick="enterPastActivity()"><div>Add a New Activity</div></button></div>
       </div>
     </div>
     <div class="next-activity">
       Future Plans
       <div class="activity-box" id="next-activity-box-button">
-        <button class="enter-button" id="next-activity-button" onclick="enterNextActivity()">Add New Activity</button>
+        <button class="enter-button" id="next-activity-button" onclick="enterNextActivity()"><div>Add New Activity</div></button>
       </div>
       <div class="activity-box" id="next-activity-box-form">
         <div class="form-div">
@@ -83,12 +84,13 @@
           </select>
         </div>
         <div class="form-div">
-          <button class="submit-button" onclick="validateInput('future')">Submit</button>
+          <button class="submit-button" onclick="validateInput('future')"><div>Submit</div></button>
         </div>
       </div>
       <div class="activity-box" id="recorded-future-activity">
         <div id="recorded-future-activity-text">Sounds good! Don't forget to update your session for <strong id="future-activity-bold"></strong></div>
-        <div><button class="enter-button" onclick="enterNextActivity()">Add a New Activity</button></div>
+        <br>
+        <div><button class="enter-button" onclick="enterNextActivity()"><div>Add a New Activity</div></button></div>
       </div>
     </div>
   </div>
