@@ -1,7 +1,10 @@
-// TODO:
-// Add date checking: if future activity, date should be in the future and if
-// is a past activity the date should have already occurred
-// Set the default values of both date types to be today
+// Sets the value of both date inputs to be today by default using Date module
+function getDate() {
+  todayDateString = new Date().toLocaleDateString('en-CA');
+  document.getElementById("past-activity-date").value = todayDateString;
+  document.getElementById("future-activity-date").value = todayDateString;
+
+}
 
 function updateUnits(inputType) {
   activityType = document.getElementById(inputType + "-activity-type").value;
@@ -19,7 +22,7 @@ function updateUnits(inputType) {
 function enterPastActivity() {
   document.getElementById("past-activity-box-button").style.display = "none";
   document.getElementById("recorded-past-activity").style.display = "none";
-  document.getElementById("past-activity-box-form").style.display = "block";
+  document.getElementById("past-activity-box-form").style.display = "flex";
 }
 
 
@@ -27,11 +30,12 @@ function enterPastActivity() {
 function enterNextActivity() {
   document.getElementById("next-activity-box-button").style.display = "none";
   document.getElementById("recorded-future-activity").style.display = "none";
-  document.getElementById("next-activity-box-form").style.display = "block";
+  document.getElementById("next-activity-box-form").style.display = "flex";
 }
 
 // Checks if all of the fields for the form have been filled out correctly before the user is able to submit an activity. InputType is either present or past. 
 function validateInput(inputType) {
+  // Check that all the fields are filled out
   elementList = [];
   elementList.push(document.getElementById(inputType + "-activity-date").value);
   elementList.push(document.getElementById(inputType + "-activity-type").value);
@@ -46,6 +50,22 @@ function validateInput(inputType) {
       return false;
     }
   }
+  // Check that the date is valid 
+  todayDateString = new Date().toLocaleDateString('en-CA');
+  if (inputType == "past") {
+    // Check that the date of a past activity is in the past 
+    if (elementList[0] > todayDateString) {
+      alert("Date must be in the past");
+      return false;
+    }
+  } else {
+    // Check that the date of a future activity is in the future 
+    if (elementList[0] < todayDateString) {
+      alert("Date must be in the future");
+      return false;
+    }
+  }
+  // Since everything is valid, move on to updating text and calling the postRequest
   updateText(inputType, elementList);
   sendPostRequest(inputType, elementList).then(function (response) {
     if (inputType == "past") {
@@ -62,13 +82,15 @@ function validateInput(inputType) {
 // Change the inner text of the div's and then make the div visible
 function updateText(inputType, elementList) {
   if (inputType == "past") {
-      document.getElementById("recorded-past-activity-text").innerText = "Got it! " + elementList[1] + " for " + elementList[2] + " " + elementList[3] + ". Keep up the good work!"
+      document.getElementById("past-activity-bold").innerText = elementList[1] + " for " + elementList[2] + " " + elementList[3] + "."
       document.getElementById("past-activity-box-form").style.display = "none";
-      document.getElementById("recorded-past-activity").style.display = "block";
+      document.getElementById("recorded-past-activity").style.display = "flex";
+      document.getElementById("recorded-past-activity").style.flexDirection = "column";
   } else {
-    document.getElementById("recorded-future-activity-text").innerText = "Sounds good! Don't forget to update your session for " + elementList[1] + " on " + elementList[0] + "!";
+    document.getElementById("future-activity-bold").innerText = elementList[1] + " on " + elementList[0] + "!";
     document.getElementById("next-activity-box-form").style.display = "none";
-    document.getElementById("recorded-future-activity").style.display = "block";
+    document.getElementById("recorded-future-activity").style.display = "flex";
+    document.getElementById("recorded-future-activity").style.flexDirection = "column";
   }
 }
 

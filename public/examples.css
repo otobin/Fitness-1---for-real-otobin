@@ -26,15 +26,18 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 50px;
-  margin-bottom: 50px;
   flex-wrap: wrap;
 }
 
 #welcome {
   font-size: 40px;
   font-weight: bold;
-  max-width: 300px;
   color: #333333;
+  flex-grow: 1;
+}
+
+#picture-container {
+  flex-grow: 2;
 }
 
 #which-activity {
@@ -48,11 +51,15 @@ body {
   border-radius: 25px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
+  font-weight: bold;
 }
 
 .form-div {
   max-width: 200px;
+  margin: 20px;
 }
 
 #past-activity-box-button {
@@ -76,11 +83,13 @@ body {
 #recorded-future-activity {
   background-color: #B1BAB9;
   display: none;
+  text-align: center;
 }
 
 #recorded-past-activity {
   background-color: #53E0CD;
   display: none;
+  text-align: center;
 }
 
 .enter-button {
@@ -89,6 +98,7 @@ body {
   box-shadow: 1px 1px;
   color: #333333;
   border-radius: 25px;
+  text-align: center;
 }
 
 .submit-button {
@@ -99,4 +109,36 @@ body {
   border-radius: 25px;
 }
 
+#which-activity {
+  margin-bottom: 50px;
+}
 
+@media screen and (max-width: 627px) {
+  img {
+    width: 200px;
+  }
+  .form-div {
+    margin: 10px;
+    max-width: 100px;
+  }
+  input {
+    max-width: 100px;
+  }
+  select {
+    max-width: 100px;
+  }
+
+}
+
+button {
+  max-width: 160px;
+  padding: 20px;
+}
+
+.past-activity {
+  font-weight: bold;
+}
+
+.next-activity {
+  font-weight: bold;
+}
